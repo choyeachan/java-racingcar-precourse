@@ -1,10 +1,16 @@
 public class RacingGame{
 
-	public String[] cars;
+	public Cars cars;
 	public int tryCount=0;
 
 	public void readyForRacing(String carsString,String seperator){
-		cars = carsString.split(seperator);
+		String[] carNames = carsString.split(seperator);
+		cars = getCarsBySplitedCarNames(carNames) ;
+
+	}
+
+	public Cars getCarsBySplitedCarNames(String[] carNames){
+		return new Cars(carNames);	
 	}
 
 	public void tryCount(int tryCount){

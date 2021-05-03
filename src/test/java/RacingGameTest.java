@@ -13,8 +13,8 @@ public class RacingGameTest {
 		String carsString = "1,2,3,4,5";
 		String seperator = ",";
 		racingGame.readyForRacing(carsString,seperator);
-		String[] cars = racingGame.cars;
-		assertEquals(cars.length, 5);
+		Cars cars = racingGame.cars;
+		assertEquals(cars.size(), 5);
 	}
 
 
