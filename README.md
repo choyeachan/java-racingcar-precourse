@@ -5,3 +5,7 @@
 
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
+
+
+## 기능 요구사항 
+- [X] 지정된 seperator 로 입력값을 배열로 만든다
