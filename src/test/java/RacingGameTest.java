@@ -15,4 +15,14 @@ public class RacingGameTest {
 		assertEquals(cars.length, 5);
 	}
 
+	@Test
+	public void couldSaveTryCount(){
+
+		RacingGame racingGame = new RacingGame();
+		int tryCount = 10;
+		racingGame.tryCount(tryCount);
+		assertEquals(racingGame.tryCount, 10);
+	}
+
+
 }
