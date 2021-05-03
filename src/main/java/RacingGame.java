@@ -11,4 +11,9 @@ public class RacingGame{
 		this.tryCount = tryCount;
 	}
 
+	public boolean lengthCheckUnderFiveLength(String stringValue){
+		return stringValue == null? false : stringValue.length() < 6;
+	}
+
+
 }

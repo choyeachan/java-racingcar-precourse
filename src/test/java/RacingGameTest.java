@@ -1,4 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +17,7 @@ public class RacingGameTest {
 		assertEquals(cars.length, 5);
 	}
 
+
 	@Test
 	public void couldSaveTryCount(){
 
@@ -24,5 +27,16 @@ public class RacingGameTest {
 		assertEquals(racingGame.tryCount, 10);
 	}
 
+	@Test
+	public void couldInputStringThatLengthIsMaximumFive(){
+
+		RacingGame racingGame = new RacingGame();
+		String fiveLengthValue = "12345";
+		String underFiveLengthValue = "123";
+		String overFiveLengthValue = "123456";
+		assertTrue(racingGame.lengthCheckUnderFiveLength(fiveLengthValue));
+		assertTrue(racingGame.lengthCheckUnderFiveLength(underFiveLengthValue));
+		assertFalse(racingGame.lengthCheckUnderFiveLength(overFiveLengthValue));
+	}
 
 }
