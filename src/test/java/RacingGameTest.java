@@ -50,4 +50,15 @@ public class RacingGameTest {
 		assertTrue(range.contains(racingGame.generateNumber()));
 	}
 
+	@Test
+	public void couldCheckForwardOrStop(){
+		RacingGame racingGame = new RacingGame();
+		int forward = 4;
+		int stop = 1;
+		
+		assertEquals(0, racingGame.forwardOrStop(stop));
+		assertEquals(1, racingGame.forwardOrStop(forward));
+	}
+
+
 }

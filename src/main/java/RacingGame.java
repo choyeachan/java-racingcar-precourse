@@ -32,4 +32,8 @@ public class RacingGame{
 		return r.nextInt(10);
 	}
 
+	public int forwardOrStop(int number){
+		return number > 3?1:0;
+	}
+
 }
