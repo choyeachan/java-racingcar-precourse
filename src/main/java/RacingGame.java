@@ -1,12 +1,19 @@
+import java.util.Random;
+
 public class RacingGame{
 
 	public Cars cars;
 	public int tryCount=0;
 
+	private Random r;
+
+	RacingGame(){
+		r = new Random();
+	}
+
 	public void readyForRacing(String carsString,String seperator){
 		String[] carNames = carsString.split(seperator);
 		cars = getCarsBySplitedCarNames(carNames) ;
-
 	}
 
 	public Cars getCarsBySplitedCarNames(String[] carNames){
@@ -21,5 +28,8 @@ public class RacingGame{
 		return stringValue == null? false : stringValue.length() < 6;
 	}
 
+	public int generateNumber(){
+		return r.nextInt(10);
+	}
 
 }

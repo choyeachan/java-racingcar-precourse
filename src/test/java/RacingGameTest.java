@@ -2,6 +2,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class RacingGameTest {
@@ -17,10 +20,8 @@ public class RacingGameTest {
 		assertEquals(cars.size(), 5);
 	}
 
-
 	@Test
 	public void couldSaveTryCount(){
-
 		RacingGame racingGame = new RacingGame();
 		int tryCount = 10;
 		racingGame.tryCount(tryCount);
@@ -37,6 +38,16 @@ public class RacingGameTest {
 		assertTrue(racingGame.lengthCheckUnderFiveLength(fiveLengthValue));
 		assertTrue(racingGame.lengthCheckUnderFiveLength(underFiveLengthValue));
 		assertFalse(racingGame.lengthCheckUnderFiveLength(overFiveLengthValue));
+	}
+
+	@Test
+	public void couldGenerateRandomNumber(){
+		RacingGame racingGame = new RacingGame();
+		List<Integer> range = Arrays.asList(0,1,2,3,4,5,6,7,8,9);
+		assertTrue(range.contains(racingGame.generateNumber()));
+		assertTrue(range.contains(racingGame.generateNumber()));
+		assertTrue(range.contains(racingGame.generateNumber()));
+		assertTrue(range.contains(racingGame.generateNumber()));
 	}
 
 }
