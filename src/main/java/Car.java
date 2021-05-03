@@ -6,11 +6,23 @@ public class Car {
 		this.name = name;
 	}
 
-	public void forward(){
+
+	public void move(int i){
+		if(i == 0){
+			forward();
+			return;
+		}
+		stop();
+	}
+
+
+	private void forward(){
 		position++;
 	}
 
-	public void stop(){
+	private void stop(){
 	}
+
+	
 }
 

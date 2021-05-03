@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 public class RacingGame{
@@ -38,15 +39,15 @@ public class RacingGame{
 
 	public void race(){
 		while(tryCount-- > 0){
-			for(Car car : cars.pop()){
-				if(forwardOrStop(generateNumber()) == 1){
-					car.forward();
-				}
-				else{
-					car.stop();
-				}
-			}
+			raceOne();
 		}
 	}
+
+	public void raceOne(){
+		for(Car car : cars.pop()){
+			car.move(forwardOrStop(generateNumber()));
+		}
+	}
+
 
 }
