@@ -36,4 +36,17 @@ public class RacingGame{
 		return number > 3?1:0;
 	}
 
+	public void race(){
+		while(tryCount-- > 0){
+			for(Car car : cars.pop()){
+				if(forwardOrStop(generateNumber()) == 1){
+					car.forward();
+				}
+				else{
+					car.stop();
+				}
+			}
+		}
+	}
+
 }

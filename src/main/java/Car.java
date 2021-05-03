@@ -5,5 +5,12 @@ public class Car {
 	Car(String name){
 		this.name = name;
 	}
+
+	public void forward(){
+		position++;
+	}
+
+	public void stop(){
+	}
 }
 

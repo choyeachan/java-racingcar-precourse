@@ -16,4 +16,8 @@ public class Cars {
 		return cars.size();
 	}
 
+	public List<Car> pop(){
+		return cars;
+	}
+
 }
