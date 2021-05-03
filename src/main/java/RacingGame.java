@@ -39,7 +39,9 @@ public class RacingGame{
 
 	public void race(){
 		while(tryCount-- > 0){
+			System.out.println("실행 결과");
 			raceOne();
+			System.out.println();
 		}
 	}
 
