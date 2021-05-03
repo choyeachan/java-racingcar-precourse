@@ -7,8 +7,16 @@ public class Car {
 	}
 
 
+	public String outputPosition(){
+		String output = "";
+		for(int i=0;i<position;i++){
+			output += "-";
+		}
+		return output;
+	}
+
 	public void move(int i){
-		if(i == 0){
+		if(i == 1){
 			forward();
 			return;
 		}

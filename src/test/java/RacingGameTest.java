@@ -60,5 +60,27 @@ public class RacingGameTest {
 		assertEquals(1, racingGame.forwardOrStop(forward));
 	}
 
+	@Test
+	public void couldCarOutputPosition(){
+		RacingGame racingGame = new RacingGame();
+		String car1_name = "car1";
+		String car1_outputPosition = "--";
+		String car1_output = car1_name+":"+car1_outputPosition;
+		Car car1 = new Car(car1_name);
+		car1.move(1);
+		car1.move(1);
+
+		String car2_name = "car2";
+		String car2_outputPosition = "---";
+		String car2_output = car2_name+":"+car2_outputPosition;
+		Car car2 = new Car(car2_name);
+		car2.move(1);
+		car2.move(1);
+		car2.move(1);
+
+		assertEquals(car1_output, racingGame.outputCarStatus(car1));
+		assertEquals(car2_output, racingGame.outputCarStatus(car2));
+	}
+
 
 }

@@ -49,5 +49,9 @@ public class RacingGame{
 		}
 	}
 
+	public String outputCarStatus(Car car){
+		return car.name + ":" +car.outputPosition();
+	}
+
 
 }
