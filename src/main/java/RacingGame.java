@@ -46,12 +46,14 @@ public class RacingGame{
 	public void raceOne(){
 		for(Car car : cars.pop()){
 			car.move(forwardOrStop(generateNumber()));
+			System.out.println(outputCarStatus(car));
 		}
 	}
 
 	public String outputCarStatus(Car car){
 		return car.name + ":" +car.outputPosition();
 	}
+
 
 
 }

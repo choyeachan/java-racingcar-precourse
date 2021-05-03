@@ -72,7 +72,7 @@ public class RacingGameTest {
 
 		String car2_name = "car2";
 		String car2_outputPosition = "---";
-		String car2_output = car2_name+":"+car2_outputPosition;
+		String car2_output = car1_name+":"+car2_outputPosition;
 		Car car2 = new Car(car2_name);
 		car2.move(1);
 		car2.move(1);
