@@ -6,6 +6,11 @@ public class Car {
 		this.name = name;
 	}
 
+	Car(String name,int position){
+		this.name = name;
+		this.position = position;
+	}
+
 
 	public String outputPosition(){
 		String output = "";

@@ -66,21 +66,31 @@ public class RacingGameTest {
 		String car1_name = "car1";
 		String car1_outputPosition = "--";
 		String car1_output = car1_name+":"+car1_outputPosition;
-		Car car1 = new Car(car1_name);
-		car1.move(1);
-		car1.move(1);
+		Car car1 = new Car(car1_name,2);
 
 		String car2_name = "car2";
 		String car2_outputPosition = "---";
-		String car2_output = car1_name+":"+car2_outputPosition;
-		Car car2 = new Car(car2_name);
-		car2.move(1);
-		car2.move(1);
-		car2.move(1);
+		String car2_output = car2_name+":"+car2_outputPosition;
+		Car car2 = new Car(car2_name,3);
 
 		assertEquals(car1_output, racingGame.outputCarStatus(car1));
 		assertEquals(car2_output, racingGame.outputCarStatus(car2));
 	}
+
+	@Test
+	public void couldReturnHigherPositionComporeWithCarPosition(){
+		RacingGame racingGame = new RacingGame();
+		int lessThanCar = 1;
+		int equalsCar = 2;
+		int moreThanCar = 3;
+
+		Car position2Car = new Car("test",2);
+		
+		assertEquals(moreThanCar, racingGame.getWinnersPosition(moreThanCar, position2Car));
+		assertEquals(equalsCar, racingGame.getWinnersPosition(equalsCar, position2Car));
+		assertEquals(position2Car.position, racingGame.getWinnersPosition(lessThanCar, position2Car));
+	}
+
 
 
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -43,6 +44,7 @@ public class RacingGame{
 			raceOne();
 			System.out.println();
 		}
+		System.out.println(outputResult(cars));
 	}
 
 	public void raceOne(){
@@ -56,6 +58,25 @@ public class RacingGame{
 		return car.name + ":" +car.outputPosition();
 	}
 
+	public String outputResult(Cars cars){
+		String winners = ""; 
+		int winnerPosition = 0;
+		for(Car car: cars.pop()){
+			winnerPosition = getWinnersPosition(winnerPosition, car);
+		}
 
+		for(Car car: cars.pop()){
+			if(car.position == winnerPosition)
+				winners += car.name + ",";
+		}
+		return winners.substring(0, winners.length()-1);
+	}
+
+	public int getWinnersPosition(int winnerPosition, Car car){
+		if(car.position > winnerPosition)  
+			return car.position;
+
+		return winnerPosition;
+	}
 
 }
