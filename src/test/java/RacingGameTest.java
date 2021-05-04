@@ -29,15 +29,18 @@ public class RacingGameTest {
 	}
 
 	@Test
-	public void couldInputStringThatLengthIsMaximumFive(){
+	public void couldInputStringThatLengthIsMaximumFive() {
 
 		RacingGame racingGame = new RacingGame();
 		String fiveLengthValue = "12345";
 		String underFiveLengthValue = "123";
-		String overFiveLengthValue = "123456";
-		assertTrue(racingGame.lengthCheckUnderFiveLength(fiveLengthValue));
-		assertTrue(racingGame.lengthCheckUnderFiveLength(underFiveLengthValue));
-		assertFalse(racingGame.lengthCheckUnderFiveLength(overFiveLengthValue));
+		try{
+			racingGame.lengthCheckUnderFiveLength(fiveLengthValue);
+			racingGame.lengthCheckUnderFiveLength(underFiveLengthValue);
+			assertTrue(true);
+		}catch(StringLengthException e){
+			assertTrue(false);
+		}
 	}
 
 	@Test

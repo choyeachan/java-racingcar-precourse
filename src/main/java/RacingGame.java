@@ -11,25 +11,59 @@ public class RacingGame{
 	private Random r;
 	private Scanner scan;
 
+	private int stage = 1;
 	RacingGame(){
 		r = new Random();
 		scan = new Scanner(System.in);
 	}
 
 	public void run(){
-		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-		String carNames = scan.next();
-		readyForRacing(carNames, ",");
-		System.out.println("시도할 회수는 몇회인가요?");
-		String tryCount = scan.next();
-		tryCount(Integer.parseInt(tryCount));
+		readyForRacing(inputCars(), ",");
+		inputTryCount();
 		race();
-		outputResult(cars);
+	}
+
+	private String inputCars(){
+		System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+		return scan.next();
+	}
+
+	private void inputTryCount(){
+		if(stage == 2){
+			System.out.println("시도할 회수는 몇회인가요?");
+			String tryCount = scan.next();
+			runStage2(tryCount);
+		}
+	}
+
+	private void runStage2(String tryCount){
+		try{
+			tryCount(Integer.parseInt(tryCount));
+			stage=3;
+		}catch(NumberFormatException e){
+			stage=2;
+			run();
+		}
 	}
 
 	public void readyForRacing(String carsString,String seperator){
-		String[] carNames = carsString.split(seperator);
-		cars = getCarsBySplitedCarNames(carNames) ;
+		if(stage == 1){
+			String[] carNames = carsString.split(seperator);
+			cars = getCarsBySplitedCarNames(carNames) ;
+			runStage1();
+		}
+	}
+
+	public void runStage1(){
+		try{
+			stage=2;
+			verifyCarsNamesLength(cars);
+			run();
+		}catch(StringLengthException e){
+			stage=1;
+			System.out.println(e.getMessage());
+			run();
+		}
 	}
 
 	public Cars getCarsBySplitedCarNames(String[] carNames){
@@ -40,8 +74,14 @@ public class RacingGame{
 		this.tryCount = tryCount;
 	}
 
-	public boolean lengthCheckUnderFiveLength(String stringValue){
-		return stringValue == null? false : stringValue.length() < 6;
+	public void verifyCarsNamesLength(Cars cars) throws StringLengthException{
+		for(Car car:cars.pop()){
+			lengthCheckUnderFiveLength(car.name);
+		}
+	}
+
+	public void lengthCheckUnderFiveLength(String stringValue) throws StringLengthException {
+		if(stringValue == null || stringValue.length() > 5) throw new StringLengthException(); 
 	}
 
 	public int generateNumber(){
@@ -53,12 +93,18 @@ public class RacingGame{
 	}
 
 	public void race(){
+		if(stage == 3) tryRace();
+	}
+
+	private void tryRace(){
 		while(tryCount-- > 0){
 			System.out.println("실행 결과");
 			raceOne();
 			System.out.println();
 		}
 		System.out.println(outputResult(cars));
+
+
 	}
 
 	public void raceOne(){
