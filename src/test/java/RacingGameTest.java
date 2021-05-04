@@ -91,6 +91,17 @@ public class RacingGameTest {
 		assertEquals(position2Car.position, racingGame.getWinnersPosition(lessThanCar, position2Car));
 	}
 
+	@Test
+	public void couldReturnOutputSamePosition(){
+		RacingGame racingGame = new RacingGame();
+
+		String winners = "";
+		int winnerPosition = 1;
+		Car car = new Car("test",1);
+		
+		assertEquals("test,", racingGame.getWinners(winners, winnerPosition, car));
+	}
+
 
 
 }

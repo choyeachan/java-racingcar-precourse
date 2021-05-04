@@ -64,10 +64,8 @@ public class RacingGame{
 		for(Car car: cars.pop()){
 			winnerPosition = getWinnersPosition(winnerPosition, car);
 		}
-
 		for(Car car: cars.pop()){
-			if(car.position == winnerPosition)
-				winners += car.name + ",";
+			winners = getWinners(winners, winnerPosition, car);
 		}
 		return winners.substring(0, winners.length()-1);
 	}
@@ -77,6 +75,12 @@ public class RacingGame{
 			return car.position;
 
 		return winnerPosition;
+	}
+
+	public String getWinners(String winners, int winnerPosition, Car car){
+		if(car.position == winnerPosition)
+				return winners + car.name + ",";
+		return winners;
 	}
 
 }
