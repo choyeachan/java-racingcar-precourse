@@ -59,15 +59,11 @@ public class RacingGame{
 	}
 
 	public String outputResult(Cars cars){
-		String winners = ""; 
 		int winnerPosition = 0;
 		for(Car car: cars.pop()){
 			winnerPosition = getWinnersPosition(winnerPosition, car);
 		}
-		for(Car car: cars.pop()){
-			winners = getWinners(winners, winnerPosition, car);
-		}
-		return winners.substring(0, winners.length()-1);
+		return getWinners(winnerPosition, cars);
 	}
 
 	public int getWinnersPosition(int winnerPosition, Car car){
@@ -77,10 +73,18 @@ public class RacingGame{
 		return winnerPosition;
 	}
 
-	public String getWinners(String winners, int winnerPosition, Car car){
+	public String getWinner(String winners, int winnerPosition, Car car){
 		if(car.position == winnerPosition)
 				return winners + car.name + ",";
 		return winners;
+	}
+
+	public String getWinners(int winnerPosition, Cars cars){
+		String winners = ""; 
+		for(Car car: cars.pop()){
+			winners = getWinner(winners, winnerPosition, car);
+		}
+		return winners.substring(0, winners.length()-1);
 	}
 
 }

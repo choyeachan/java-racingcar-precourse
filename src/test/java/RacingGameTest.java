@@ -99,7 +99,7 @@ public class RacingGameTest {
 		int winnerPosition = 1;
 		Car car = new Car("test",1);
 		
-		assertEquals("test,", racingGame.getWinners(winners, winnerPosition, car));
+		assertEquals("test,", racingGame.getWinner(winners, winnerPosition, car));
 	}
 
 
